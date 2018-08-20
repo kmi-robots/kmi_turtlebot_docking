@@ -51,6 +51,7 @@ def feedback_cb(feedback):
 def docking_cb(data):
     global current_status
 
+    print 'current status is ' + current_status
     if current_status == 0:
         client_mb = actionlib.SimpleActionClient('move_base', MoveBaseAction)
         while not client_mb.wait_for_server(rospy.Duration(5)):
@@ -92,6 +93,7 @@ def docking_cb(data):
 def status_cb(msg):
     global current_status
     current_status = msg.charger
+    print 'current status is ' + current_status
 
 
 def dock_drive_client():
